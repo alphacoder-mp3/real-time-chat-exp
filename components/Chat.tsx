@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef, FormEvent } from 'react';
 import io, { Socket } from 'socket.io-client';
-import { sendMessage } from '../actions/sendMessage';
+import { sendMessage } from '@/app/actions/sendMessage';
 
 let socket: Socket;
 

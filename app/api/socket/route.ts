@@ -6,7 +6,7 @@ let io: SocketIOServer;
 export async function GET() {
   if (!io) {
     console.log('Socket is initializing');
-    // i had to this no matter @ts-expect-error
+
     const httpServer = (process as any).__server;
     io = new SocketIOServer(httpServer, {
       path: '/api/socket',
