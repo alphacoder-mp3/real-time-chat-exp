@@ -7,7 +7,8 @@ export async function GET() {
   if (!io) {
     console.log('Socket is initializing');
 
-    const httpServer = (process as any).__server;
+    //@ts-expect-error test comment
+    const httpServer = process.__server;
     io = new SocketIOServer(httpServer, {
       path: '/api/socket',
     });

@@ -3,6 +3,8 @@
 import { useEffect, useState, useRef, FormEvent } from 'react';
 import io, { Socket } from 'socket.io-client';
 import { sendMessage } from '@/app/actions/sendMessage';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 
 let socket: Socket;
 
@@ -43,7 +45,7 @@ export default function Chat() {
   };
   console.log({ messages });
   return (
-    <div>
+    <>
       <div className="mb-4 h-64 overflow-y-auto border p-2">
         {messages.map((msg, i) => (
           <div key={i} className="mb-2">
@@ -52,19 +54,16 @@ export default function Chat() {
         ))}
       </div>
       <form onSubmit={handleSubmit} ref={formRef}>
-        <input
+        <Input
           type="text"
           name="message"
           className="mr-2 rounded border p-2"
           placeholder="Type a message"
         />
-        <button
-          type="submit"
-          className="rounded bg-blue-500 px-4 py-2 text-white"
-        >
+        <Button type="submit" className="rounded px-4 py-2 shadow-lg">
           Send
-        </button>
+        </Button>
       </form>
-    </div>
+    </>
   );
 }
